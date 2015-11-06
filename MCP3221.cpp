@@ -45,6 +45,8 @@ int MCP3221::readI2CADC(void) {
     result += Wire.read();
   }
 
+  _lastADCResult = result;
+
   return result;
 }
 
@@ -129,4 +131,9 @@ int MCP3221::calcEMAVG() {
 void MCP3221::updateVRef(int adcVRef)
 {
   _adcVRef = adcVRef;
+}
+
+int MCP3221::getLastADCResult()
+{
+  return _lastADCResult;
 }
