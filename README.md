@@ -1,3 +1,8 @@
+Fork Note
+=========
+
+Only added in function for returning the raw ADC response for debugging from Arduino
+
 Welcome To: MCP3221 Driver Library
 ================================
 
