@@ -40,13 +40,15 @@ class MCP3221 {
   int calcEMAVG(void); //this is our exponential moving average which approximates a rolling/moving average using only the current and previous datapoints instead of arrays of points
 
   void updateVRef(int adcVRef);
-
+  int getLastADCResult();
+  
  private:
  	uint8_t I2CADCAddress;
  	int _adcVRef; //this is the Vin of the MCP3221 in Millivolts
  	int _samples[NUMSAMPLES];
  	int _cnt;
  	long _rollingTotal;
+ 	int _lastADCResult;
 };
 
 #endif
