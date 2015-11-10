@@ -96,12 +96,17 @@ int MCP3221::calcRollingAVG() {
   _samples[NUMSAMPLES - 1] = readI2CADC();
 
   //Calculate our sum from the array with new data in and oldest data point dropped
+  int overZero = 0;
   for (i = 0; i<NUMSAMPLES; i++)
   {
+	  if (_samples[i] > 0) {
+		  overZero++;
+	  }
+
 	  sum += _samples[i];
   }
   //and now finally our average
-  average = sum / NUMSAMPLES;
+  average = sum / overZero;
 
   return average;
 }
@@ -135,5 +140,5 @@ void MCP3221::updateVRef(int adcVRef)
 
 int MCP3221::getLastADCResult()
 {
-  return _lastADCResult;
+	return _lastADCResult;
 }
