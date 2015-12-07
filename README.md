@@ -1,7 +1,8 @@
 Fork Note
 =========
 
-Only added in function for returning the raw ADC response for debugging from Arduino
+- Added in function for returning the raw ADC response for debugging from Arduino
+- Changed CalcRollingAvg to only include non-zero values from array
 
 Welcome To: MCP3221 Driver Library
 ================================
